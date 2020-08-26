@@ -1,0 +1,20 @@
+import { generateConstants } from '../utils/redux';
+
+export default generateConstants([
+  'USER_LOGIN(ASYNC)',
+  'PROJECT_INDEX(ASYNC)',
+  'PROJECT_RECENTS(ASYNC)',
+  'PROJECT_SHOW(ASYNC)',
+
+  'ISSUE_INDEX(ASYNC)',
+  'ISSUE_CREATE(ASYNC)',
+  'ISSUE_OPTIONS(ASYNC)',
+  'ISSUE_SHOW(ASYNC)',
+  'ISSUE_EDIT(ASYNC)',
+  'ISSUE_SET_ASSIGNEE(ASYNC)',
+  'ISSUE_SET_PROGRESS(ASYNC)',
+  'ISSUE_SET_LABELS(ASYNC)',
+  'ISSUE_ADD_LABELS',
+  'ISSUE_DELETE(ASYNC)',
+
+]);

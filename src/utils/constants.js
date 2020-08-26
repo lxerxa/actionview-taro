@@ -1,0 +1,2 @@
+
+export const AUTHORIZATION_KEY = 'AUTHORIZATION';

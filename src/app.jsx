@@ -8,6 +8,7 @@ import configStore from './store';
 
 import './app.less';
 import 'font-awesome/css/font-awesome.css';
+import 'taro-ui/dist/style/index.scss';
 
 // 如果需要在 h5 环境中开启 React Devtools
 // 取消以下注释：

@@ -38,6 +38,7 @@ const config = {
   },
   plugins: [
     '@tarojs/plugin-less',
+    '@tarojs/plugin-sass',
     '@tarojs/plugin-terser'
   ],
   defineConstants: {
@@ -78,6 +79,7 @@ const config = {
   h5: {
     publicPath: '/',
     staticDirectory: 'static',
+    esnextModules: ['taro-ui'],
     postcss: {
       autoprefixer: {
         enable: true,

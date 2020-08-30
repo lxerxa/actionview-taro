@@ -1,6 +1,7 @@
 import Taro, { Component } from '@tarojs/taro';
 import PropTypes from 'prop-types';
 import { View } from '@tarojs/components';
+import { AtCard } from "taro-ui"
 
 import './item.less';
 
@@ -20,11 +21,11 @@ export default class Item extends Component {
     if (!item) return <View />;
 
     return (
-      <View className='issue_item'>
-        <View className='title_view'>
-          { item.title }
-        </View>
-      </View>
+      <AtCard
+        title='这是个标题'
+      >
+        这也是内容区 可以随意定义功能
+      </AtCard>
     )
   }
 }

@@ -14,13 +14,16 @@ export default class Item extends Component {
   }
 
   render() {
+
     const { item } = this.props;
 
     if (!item) return <View />;
 
     return (
-      <View className='content'>
-        { item.title }
+      <View className='issue_item'>
+        <View className='title_view'>
+          { item.title }
+        </View>
       </View>
     )
   }

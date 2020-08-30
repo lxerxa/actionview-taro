@@ -79,7 +79,10 @@ class Login extends Component {
           // load the project detaill and permission
           await this.loadProject(recents[0].key);
           // switch the issue tab
-          Taro.switchTab({ url: '/pages/issue/index' });
+          if (process.env.TARO_ENV === 'h5') {
+            Taro.redirectTo({ url: '/pages/issue/index' })
+          }
+          setTimeout(() => { Taro.redirectTo({ url: '/pages/issue/index' }) }, 100);
         }
       } else {
         Taro.setStorageSync('Authorization', '');

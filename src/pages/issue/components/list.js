@@ -27,7 +27,7 @@ export default class List extends Component {
     if (!collection) return <View />;
 
     return (
-      <View className='content'>
+      <View>
         {
           collection.map((item, index) => {
             return (

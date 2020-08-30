@@ -8,6 +8,8 @@ import * as IssueActions from '@/actions/issue';
 
 import List from './components/list';
 
+import Segment from './components/segment';
+
 import './index.less'
 
 function mapDispatchToProps(dispatch) {
@@ -26,7 +28,8 @@ class Index extends Component {
   }
 
   config = {
-    navigationBarTitleText: '首页'
+    navigationBarTitleText: '首页',
+    enablePullDownRefresh: true
   }
 
   index = async (query) => {
@@ -76,11 +79,15 @@ class Index extends Component {
 
   componentDidHide () { }
 
+  onPullDownRefresh() {
+  }
+
   render () {
     const { issue: { collection } } = this.props;
 
     return (
       <View className='index'>
+        <Segment />
         <List collection={ collection }/> 
       </View>
     )

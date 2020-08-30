@@ -1,12 +1,13 @@
-import Taro, { Component } from '@tarojs/taro'
-import { Provider } from '@tarojs/redux'
+import Taro, { Component } from '@tarojs/taro';
+import { Provider } from '@tarojs/redux';
 
-import Index from './pages/index'
-import Login from './pages/login'
+import Index from './pages/index';
+import Login from './pages/login';
 
-import configStore from './store'
+import configStore from './store';
 
-import './app.less'
+import './app.less';
+import 'font-awesome/css/font-awesome.css';
 
 // 如果需要在 h5 环境中开启 React Devtools
 // 取消以下注释：

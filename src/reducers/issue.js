@@ -2,6 +2,7 @@ import at from '@/constants/ActionTypes';
 
 const INITIAL_STATE = {
   ecode: 0,
+  query: {},
   item: {},
   collection: [],
   options: {},

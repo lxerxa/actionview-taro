@@ -5,9 +5,9 @@ import qs from 'qs';
 
 import { bindActionCreators } from '@/utils/redux'
 import * as IssueActions from '@/actions/issue';
+import { REFRESH_STATUS } from '@/constants/status'
 
 import List from './components/list';
-
 import Segment from './components/segment';
 
 import './index.less'
@@ -23,6 +23,8 @@ class Index extends Component {
 
   constructor(props) {
     super(props);
+    this.state = { page: 1 };
+
     const currentProject = Taro.getStorageSync('CurrentProject');
     this.pid = currentProject.key;
   }
@@ -32,9 +34,9 @@ class Index extends Component {
     enablePullDownRefresh: true
   }
 
-  index = async (query) => {
-    query = query || {};
-    if (!query.page) { query.page = 1; }
+  index = async () => {
+    const { issue: { query } } = this.props;
+    query.page = this.state.page;
     await this.props.actions.index(this.pid, qs.stringify(query));
     return this.props.issue.ecode;
   }
@@ -79,7 +81,26 @@ class Index extends Component {
 
   componentDidHide () { }
 
-  onPullDownRefresh() {
+  onPullDownRefresh = () => {
+    const self = this;
+    this.setState({
+      page: 1
+    }, () => {
+      self.index();
+    });
+  }
+
+  onReachBottom = () => {
+    console.log('tt');
+    const self = this;
+    const { page, refresh_status } = this.state;
+    if (refresh_status !== REFRESH_STATUS.NO_MORE_DATA) {
+      this.setState({
+        page: page + 1
+      }, () => {
+        self.index();
+      });
+    }
   }
 
   render () {

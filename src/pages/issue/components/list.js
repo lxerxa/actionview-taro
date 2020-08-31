@@ -29,7 +29,13 @@ export default class List extends Component {
     return (
       <View>
         {
-          collection.map((item, index) => <Item item={ item } key={ index }/>)
+          collection.map((item, index) => {
+            return (
+              <View onClick={ this.handleClicked(item) } key={ index }>
+                <Item item={ item } />
+              </View>
+            )
+          })
         }
       </View>
     )

@@ -50,7 +50,7 @@ class Login extends Component {
     return this.props.project.ecode;
   }
 
-  async userLogin() {
+  userLogin = async () => {
     const { email, password } = this.state;
 
     if (email.length === 0) {
@@ -95,6 +95,8 @@ class Login extends Component {
   }
 
   render() {
+    const { user: { loading } } = this.props;
+
     return (
       <View className='login_content'>
         <View className='input_view'>
@@ -112,9 +114,7 @@ class Login extends Component {
             placeholder='请输入密码'
             value={ this.state.password }
             onChange={ (value) => { this.setState({ password: value }) } } />
-        </View>
-        <View className='login_button' onClick={ this.userLogin.bind(this) }>
-          登录 
+          <AtButton loading={ loading['login'] && true } type='primary' className='button' onClick={ this.userLogin }>登录</AtButton>
         </View>
       </View>
     );

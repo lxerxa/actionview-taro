@@ -32,6 +32,29 @@ export default function issue(state = INITIAL_STATE, action) {
          ecode: action.result.ecode,
          ...state,
        }
+
+     case at.ISSUE_OPTIONS:
+       state.loading['options'] = true;
+       state.options = {};
+       return {
+         ...state,
+       }
+     case at.ISSUE_OPTIONS_SUCCESS:
+       state.loading['options'] = false;
+       if (action.result.ecode === 0) {
+         state.options = action.result.data;
+       }
+       return {
+         ecode: 0,
+         ...state,
+       }
+     case at.ISSUE_OPTIONS_FAIL:
+       state.loading['options'] = false;
+       return {
+         ecode: action.result.ecode,
+         ...state,
+       }
+
      default:
        return state;
   }

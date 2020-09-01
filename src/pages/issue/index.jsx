@@ -5,6 +5,7 @@ import qs from 'qs';
 
 import { bindActionCreators } from '@/utils/redux'
 import * as IssueActions from '@/actions/issue';
+import { CONFIGS } from '@/constants/configs'
 import { REFRESH_STATUS } from '@/constants/status'
 
 import List from './components/list';
@@ -68,6 +69,12 @@ class Index extends Component {
   }
 
   componentWillReceiveProps (nextProps) {
+    const { issue: { loading } } = nextProps;
+    if (loading['index']) {
+      Taro.showLoading({ title: CONFIGS.LOADING_TEXT }); 
+    } else {
+      Taro.hideLoading(); 
+    }
   }
 
   componentDidMount () { 
@@ -91,7 +98,6 @@ class Index extends Component {
   }
 
   onReachBottom = () => {
-    console.log('tt');
     const self = this;
     const { page, refresh_status } = this.state;
     if (refresh_status !== REFRESH_STATUS.NO_MORE_DATA) {
@@ -104,12 +110,15 @@ class Index extends Component {
   }
 
   render () {
-    const { issue: { collection } } = this.props;
+    const { issue: { collection, options } } = this.props;
 
     return (
       <View className='index'>
         <Segment />
-        <List collection={ collection }/> 
+        <List 
+          options={ options }
+          collection={ collection }
+          /> 
       </View>
     )
   }

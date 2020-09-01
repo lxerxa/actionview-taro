@@ -22,9 +22,13 @@ class App extends Component {
 
   config = {
     pages: [
-      'pages/login/index',
       'pages/index/index',
+      'pages/login/index',
       'pages/issue/index',
+      'pages/document/index',
+      'pages/activity/index',
+      'pages/kanban/index',
+      'pages/me/index',
     ],
     window: {
       backgroundTextStyle: 'light',
@@ -44,7 +48,7 @@ class App extends Component {
         iconPath: './assets/tab-bar/home.png',
         selectedIconPath: './assets/tab-bar/home-active.png'
       }, {
-        pagePath: 'pages/kanban/index',
+        pagePath: 'pages/activity/index',
         text: '活动',
         iconPath: './assets/tab-bar/home.png',
         selectedIconPath: './assets/tab-bar/home-active.png'

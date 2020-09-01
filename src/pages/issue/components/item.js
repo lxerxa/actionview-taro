@@ -7,6 +7,7 @@ import './item.less';
 
 export default class Item extends Component {
   static propTypes = {
+    options: PropTypes.object,
     item: PropTypes.object
   }
 
@@ -16,9 +17,27 @@ export default class Item extends Component {
 
   render() {
 
-    const { item } = this.props;
+    const { options, item } = this.props;
 
     if (!item) return <View />;
+
+    let typeName = '';
+    if (options.types) {
+      const ti = options.types.findIndex((v) => v.id == item.type);
+      if (ti >= 0) {
+        typeName = options.types[ti].name;
+      }
+    }
+
+    let stateName = '';
+    let stateCategory = '';
+    if (options.states) {
+      const si = options.states.findIndex((v) => v.id == item.state);
+      if (si >= 0) {
+        stateName = options.states[si].name;
+        stateCategory = options.states[si].category;
+      }
+    }
 
     return (
       <View className='issue-item-view'>
@@ -28,17 +47,17 @@ export default class Item extends Component {
         <View className='item-bottom'>
           <View className='item-bottom-item'>
             <View className='item-bottom-title'>
-              <AtTag active size='small'>新功能</AtTag>
+              <AtTag active size='small' className='type-label'>{ typeName }</AtTag>
             </View>
           </View>
           <View className='item-bottom-item'>
             <View className='item-bottom-title'>
-              <AtIcon value='user' size='small'/> 红中
+              <AtIcon value='user' size='small'/> { item.assignee && item.assignee.name || '' } 
             </View>
           </View>
           <View className='item-bottom-item'>
             <View className='item-bottom-title'>
-              <AtTag active size='small'>开始</AtTag>
+              <AtTag active size='small' className={ 'state-' + stateCategory + '-label' }>{ stateName }</AtTag>
             </View>
           </View>
         </View>

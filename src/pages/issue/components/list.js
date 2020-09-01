@@ -8,6 +8,7 @@ import './list.less';
 
 export default class List extends Component {
   static propTypes = {
+    options: PropTypes.object,
     collection: PropTypes.array
   }
 
@@ -22,7 +23,7 @@ export default class List extends Component {
   }
 
   render() {
-    const { collection } = this.props;
+    const { collection, options } = this.props;
 
     if (!collection) return <View />;
 
@@ -32,7 +33,7 @@ export default class List extends Component {
           collection.map((item, index) => {
             return (
               <View onClick={ this.handleClicked(item) } key={ index }>
-                <Item item={ item } />
+                <Item item={ item } options={ options }/>
               </View>
             )
           })

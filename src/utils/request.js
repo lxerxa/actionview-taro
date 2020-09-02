@@ -19,6 +19,9 @@ class ApiClient {
   async request(config = {}) {
     try {
       const { data } = await Taro.request(this.getConfig(config));
+      if (data && data.ecode === -10000) {
+        Taro.navigateTo({ url: '/pages/login/index' });
+      }
       return data;
     } catch (error) {
       throw error && error.data || error.stack;

@@ -21,6 +21,7 @@ export default function issue(state = INITIAL_STATE, action) {
        state.loading['index'] = false;
        if (action.result.ecode === 0) {
          state.collection = action.result.data;
+         state.options = Object.assign(state.options, action.result.options);
        }
        return {
          ecode: 0,
@@ -42,7 +43,7 @@ export default function issue(state = INITIAL_STATE, action) {
      case at.ISSUE_OPTIONS_SUCCESS:
        state.loading['options'] = false;
        if (action.result.ecode === 0) {
-         state.options = action.result.data;
+         state.options = Object.assign(state.options, action.result.data);
        }
        return {
          ecode: 0,

@@ -31,7 +31,7 @@ class Index extends Component {
   }
 
   config = {
-    navigationBarTitleText: '首页',
+    navigationBarTitleText: '问题',
     enablePullDownRefresh: true
   }
 
@@ -114,7 +114,7 @@ class Index extends Component {
 
     return (
       <View className='index'>
-        <Segment />
+        <Segment total={ options.total || 0 }/>
         <List 
           options={ options }
           collection={ collection }

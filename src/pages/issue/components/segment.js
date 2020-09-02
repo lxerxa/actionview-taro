@@ -8,6 +8,7 @@ import './segment.less'
 export default class Segment extends Component {
 
   static propTypes = {
+    total: PropTypes.number,
   }
 
   static defaultProps = {
@@ -25,13 +26,18 @@ export default class Segment extends Component {
   }
 
   render() {
-    const {  } = this.props;
+    const { total } = this.props;
 
     return (
-      <View className='segment'>
-        <AtNoticebar>这是 NoticeBar 通告栏</AtNoticebar>
-        <View className='action-view' onClick={ this.search }>
-          <AtIcon value='search' size='22' color='#333'></AtIcon>
+      <View className='issue-segment'>
+        <AtNoticebar className='notice'>共有问题 { total || '' } 个。</AtNoticebar>
+        <View className='operate-view'>
+          <View className='action-view' onClick={ this.search }>
+            <AtIcon value='add' size='22' color='#333'></AtIcon>
+          </View>
+          <View className='action-view' onClick={ this.search }>
+            <AtIcon value='search' size='22' color='#333'></AtIcon>
+          </View>
         </View>
       </View>
     )

@@ -1,5 +1,5 @@
 import Taro, { Component } from '@tarojs/taro'
-import { View, Button, Text } from '@tarojs/components'
+import { View, Button, Text, Image } from '@tarojs/components'
 import { connect } from '@tarojs/redux'
 
 import { bindActionCreators } from '../../utils/redux'
@@ -61,8 +61,9 @@ class Index extends Component {
 
   render () {
     return (
-      <View className='index'>
-        ActionView
+      <View className='profile-index'>
+        <Image className='logo' src={ require('../../assets/images/logo.png') } />
+        欢迎进入... 
       </View>
     )
   }

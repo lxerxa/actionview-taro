@@ -40,29 +40,33 @@ class App extends Component {
       list: [{
         pagePath: 'pages/issue/index',
         text: '问题',
-        iconPath: './assets/tab-bar/home.png',
-        selectedIconPath: './assets/tab-bar/home-active.png'
+        iconPath: './assets/tab-bar/list.png',
+        selectedIconPath: './assets/tab-bar/list-active.png'
       }, {
         pagePath: 'pages/kanban/index',
         text: '看板',
-        iconPath: './assets/tab-bar/home.png',
-        selectedIconPath: './assets/tab-bar/home-active.png'
+        iconPath: './assets/tab-bar/kanban.png',
+        selectedIconPath: './assets/tab-bar/kanban-active.png'
       }, {
         pagePath: 'pages/activity/index',
         text: '活动',
-        iconPath: './assets/tab-bar/home.png',
-        selectedIconPath: './assets/tab-bar/home-active.png'
+        iconPath: './assets/tab-bar/play.png',
+        selectedIconPath: './assets/tab-bar/play-active.png'
       }, {
         pagePath: 'pages/document/index',
         text: '文档',
-        iconPath: './assets/tab-bar/home.png',
-        selectedIconPath: './assets/tab-bar/home-active.png'
+        iconPath: './assets/tab-bar/file.png',
+        selectedIconPath: './assets/tab-bar/file-active.png'
       }, {
         pagePath: 'pages/me/index',
         text: '我',
-        iconPath: './assets/tab-bar/home.png',
-        selectedIconPath: './assets/tab-bar/home-active.png'
-      }]
+        iconPath: './assets/tab-bar/user.png',
+        selectedIconPath: './assets/tab-bar/user-active.png'
+      }],
+      color: '#8a8a8a',
+      selectedColor: '#2d8cf0',
+      backgroundColor: '#ffffff',
+      borderStyle: 'white'
     }
   }
 
